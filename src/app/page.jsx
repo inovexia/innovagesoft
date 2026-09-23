@@ -1,31 +1,25 @@
 import { Hero } from "@/components/sections/Hero";
-import { LogoStrip } from "@/components/sections/LogoStrip";
-import { Solutions } from "@/components/sections/Solutions";
-import { WhyUs } from "@/components/sections/WhyUs";
-import { Process } from "@/components/sections/Process";
-import { Customers } from "@/components/sections/Customers";
-import { Testimonials } from "@/components/sections/Testimonials";
+import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { ProjectIncludes } from "@/components/sections/ProjectIncludes";
+import { WhyInnovage } from "@/components/sections/WhyInnovage";
+import { CaseStudyGrid } from "@/components/sections/CaseStudyGrid";
+import { IndustriesGrid } from "@/components/sections/IndustriesGrid";
 import { Stats } from "@/components/sections/Stats";
-import { About } from "@/components/sections/About";
-import { Sitecare } from "@/components/sections/Sitecare";
-import { CallToAction } from "@/components/sections/CallToAction";
-import { Contact } from "@/components/sections/Contact";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { CtaBand } from "@/components/ui/CtaBand";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Hero />
-      <LogoStrip />
-      <Solutions />
-      <WhyUs />
-      <Process />
-      <Customers />
-      <Testimonials />
+      <ServicesGrid />
+      <ProjectIncludes tinted />
+      <WhyInnovage tinted={false} />
+      <CaseStudyGrid limit={3} tinted />
+      <IndustriesGrid />
       <Stats />
-      <About />
-      <Sitecare />
-      <CallToAction />
-      <Contact />
+      <Testimonials />
+      <CtaBand />
     </>
   );
 }

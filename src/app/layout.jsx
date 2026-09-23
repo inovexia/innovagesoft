@@ -1,7 +1,7 @@
 import { Manrope } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { company } from "@/lib/site";
+import { WhatsAppFab } from "@/components/ui/WhatsAppButton";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -14,8 +14,7 @@ const manrope = Manrope({
 export const metadata = {
   metadataBase: new URL("https://innovagesoft.com"),
   title: {
-    default:
-      "Innovage | Custom Software, Web & Mobile App Development in Canada",
+    default: "Innovage | Custom Software, Web & Mobile App Development in Canada",
     template: "%s | Innovage",
   },
   description:
@@ -23,7 +22,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_CA",
-    siteName: company.legalName,
+    siteName: "Innovage Softwares Inc.",
     title: "Innovage | Custom Software, Web & Mobile App Development in Canada",
     description:
       "Custom software, SaaS platforms, websites and mobile apps built around how your business actually works.",
@@ -63,6 +62,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <WhatsAppFab />
       </body>
     </html>
   );

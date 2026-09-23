@@ -1,12 +1,13 @@
+import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { CheckIcon } from "@/components/ui/icons";
 import { PlaceholderBadge } from "@/components/ui/PlaceholderBadge";
-import { sitecareIncludes } from "@/lib/site";
+import { sitecare } from "@/lib/site";
 
-export function Sitecare() {
+export function Sitecare({ tinted = true }) {
   return (
-    <Section id="sitecare" tinted>
+    <Section id="sitecare" tinted={tinted}>
       <div className="grid gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
         <div>
           <Reveal>
@@ -15,15 +16,13 @@ export function Sitecare() {
 
           <Reveal delay={80}>
             <h2 className="mt-5 max-w-[16ch] text-[clamp(1.85rem,3.6vw,2.9rem)] font-extrabold leading-[1.1] tracking-[-0.025em]">
-              A website isn&rsquo;t finished at launch.
+              {sitecare.heading}
             </h2>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-6 max-w-[50ch] text-[1.05rem] leading-[1.7] text-muted">
-              Plugins go out of date, security gaps appear, pages slow down and forms
-              quietly stop working. Sitecare handles all of it every month so you
-              never have to think about it.
+              {sitecare.intro}
             </p>
           </Reveal>
 
@@ -33,18 +32,15 @@ export function Sitecare() {
                 <p className="text-[0.78rem] font-bold uppercase tracking-[0.12em] text-muted">
                   Plans
                 </p>
-                {/* content.md §11 leaves the tiers and price unset. */}
-                <PlaceholderBadge />
+                {sitecare.plansPlaceholder ? <PlaceholderBadge /> : null}
               </div>
-              <p className="mt-2 font-bold">
-                Essential · Standard · Premium
-              </p>
-              <a
-                href="#contact"
+              <p className="mt-2 font-bold">{sitecare.plans}</p>
+              <Link
+                href="/contact"
                 className="mt-5 inline-block rounded-full bg-accent px-6 py-3 font-bold text-btn-text transition-transform duration-200 hover:-translate-y-px"
               >
                 See Sitecare plans
-              </a>
+              </Link>
             </div>
           </Reveal>
         </div>
@@ -55,7 +51,7 @@ export function Sitecare() {
               What&rsquo;s included
             </h3>
             <ul className="mt-6 grid gap-x-8 gap-y-4 sm:grid-cols-2">
-              {sitecareIncludes.map((item) => (
+              {sitecare.includes.map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent-soft text-accent">
                     <CheckIcon className="h-3 w-3" strokeWidth={2.6} />

@@ -1,29 +1,44 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
+import { WhatsAppLink } from "@/components/ui/WhatsAppButton";
 import { ClockIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/ui/icons";
 import { company, nextSteps } from "@/lib/site";
 import { ContactForm } from "./ContactForm";
 
-export function Contact() {
+export function Contact({ tinted = false }) {
   const { address } = company;
 
   return (
-    <Section id="contact" tinted>
-      <Reveal>
-        <h2 className="text-[clamp(1.85rem,3.6vw,2.9rem)] font-extrabold leading-[1.1] tracking-[-0.025em]">
-          Get in touch
-        </h2>
-      </Reveal>
-
-      <div className="mt-14 grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
-        <Reveal delay={80}>
-          <div className="rounded-3xl border border-hairline bg-bg p-7 md:p-9">
-            <ContactForm />
+    <Section id="contact" tinted={tinted}>
+      <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+        <Reveal>
+          <div className="rounded-3xl border border-hairline bg-surface p-7 md:p-9">
+            <h2 className="text-[1.3rem] font-extrabold tracking-[-0.02em]">
+              Tell us about your project
+            </h2>
+            <p className="mt-2 text-[0.97rem] leading-relaxed text-muted">
+              The more you can tell us up front, the more useful our first reply
+              will be.
+            </p>
+            <div className="mt-8">
+              <ContactForm />
+            </div>
           </div>
         </Reveal>
 
-        <Reveal delay={160}>
+        <Reveal delay={120}>
           <div className="grid gap-8">
+            {/* Fastest route first — most enquiries prefer it to a form. */}
+            <div className="rounded-3xl border border-hairline bg-surface p-7">
+              <h2 className="text-[0.78rem] font-bold uppercase tracking-[0.12em] text-muted">
+                Prefer to message?
+              </h2>
+              <p className="mt-3 leading-[1.65] text-muted">
+                WhatsApp is the quickest way to reach us during business hours.
+              </p>
+              <WhatsAppLink className="mt-5 w-full justify-center" />
+            </div>
+
             <ul className="grid gap-5">
               <ContactRow icon={MailIcon} label="Email">
                 <a
@@ -51,15 +66,18 @@ export function Contact() {
                 </address>
               </ContactRow>
 
-              <ContactRow icon={ClockIcon} label="Response time">
-                <span className="font-bold">{company.responseTime}</span>
+              <ContactRow icon={ClockIcon} label="Hours">
+                <span className="font-bold">{company.hours}</span>
+                <span className="mt-1 block text-[0.9rem] font-medium text-muted">
+                  Typical reply: {company.responseTime.toLowerCase()}
+                </span>
               </ContactRow>
             </ul>
 
-            <div className="rounded-3xl border border-hairline bg-bg p-7">
-              <h3 className="text-[0.78rem] font-bold uppercase tracking-[0.12em] text-muted">
+            <div className="rounded-3xl border border-hairline bg-surface p-7">
+              <h2 className="text-[0.78rem] font-bold uppercase tracking-[0.12em] text-muted">
                 What happens next
-              </h3>
+              </h2>
               <ol className="mt-5 grid gap-4">
                 {nextSteps.map((step, i) => (
                   <li key={step} className="flex gap-4">

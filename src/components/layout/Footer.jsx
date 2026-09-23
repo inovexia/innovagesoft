@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Wordmark } from "./Wordmark";
+import { ExternalIcon } from "@/components/ui/icons";
 import { company, footerColumns } from "@/lib/site";
 
 export function Footer() {
@@ -6,7 +8,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-hairline bg-surface">
-      <div className="mx-auto w-[min(100%-2rem,76rem)] py-16 md:py-20">
+      <div className="mx-auto w-[min(100%-2rem,82rem)] py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)] md:gap-8">
           <div>
             <Wordmark className="text-[1.25rem] font-extrabold tracking-[-0.03em]" />
@@ -18,6 +20,7 @@ export function Footer() {
               <div>
                 {address.city}, {address.region} {address.postalCode}
               </div>
+              <div>{company.hours}</div>
             </address>
           </div>
 
@@ -27,14 +30,26 @@ export function Footer() {
                 {col.heading}
               </h2>
               <ul className="mt-4 space-y-2.5">
-                {col.links.map((link, i) => (
-                  <li key={`${link.href}-${i}`}>
-                    <a
-                      href={link.href}
-                      className="text-[0.93rem] font-medium transition-colors duration-200 hover:text-accent"
-                    >
-                      {link.label}
-                    </a>
+                {col.links.map((link) => (
+                  <li key={link.href}>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-[0.93rem] font-medium transition-colors duration-200 hover:text-accent"
+                      >
+                        {link.label}
+                        <ExternalIcon className="h-3.5 w-3.5" />
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-[0.93rem] font-medium transition-colors duration-200 hover:text-accent"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -59,11 +74,9 @@ export function Footer() {
             </a>
           </p>
           <p>
-            © {new Date().getFullYear()} {company.legalName}. All rights
-            reserved. <span aria-hidden="true">·</span> Made in Canada{" "}
-            <span role="img" aria-label="Canada">
-              🇨🇦
-            </span>
+            © {new Date().getFullYear()} {company.legalName}. All rights reserved.{" "}
+            <span aria-hidden="true">·</span> Made in Canada{" "}
+            <span role="img" aria-label="Canada">🇨🇦</span>
           </p>
         </div>
       </div>

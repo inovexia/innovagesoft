@@ -12,7 +12,7 @@ export function Section({ id, children, className = "", tinted = false }) {
         tinted ? "border-y border-hairline bg-surface" : ""
       } ${className}`}
     >
-      <div className="mx-auto w-[min(100%-2rem,76rem)]">{children}</div>
+      <div className="mx-auto w-[min(100%-2rem,82rem)]">{children}</div>
     </section>
   );
 }
