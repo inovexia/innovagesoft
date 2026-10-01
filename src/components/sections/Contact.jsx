@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { WhatsAppLink } from "@/components/ui/WhatsAppButton";
@@ -20,8 +21,12 @@ export function Contact({ tinted = false }) {
               The more you can tell us up front, the more useful our first reply
               will be.
             </p>
+            {/* ContactForm calls useSearchParams, which needs a boundary
+                above it or the whole route opts out of static rendering. */}
             <div className="mt-8">
-              <ContactForm />
+              <Suspense fallback={null}>
+                <ContactForm />
+              </Suspense>
             </div>
           </div>
         </Reveal>

@@ -23,10 +23,23 @@ export function WhatsAppFab() {
   );
 }
 
-/** Inline variant for the contact page and CTA blocks. */
+/**
+ * Inline variant for the contact page and CTA blocks.
+ *
+ * Filled rather than outlined: WhatsApp green as text fails contrast on
+ * white, and Tailwind's `dark:` keys off prefers-color-scheme, which would
+ * ignore our data-theme override.
+ */
 export function WhatsAppLink({ className = "", label = "Chat on WhatsApp" }) {
   return (
-    <a>
+    <a
+      href={whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 font-bold text-white transition-transform duration-200 hover:-translate-y-px ${className}`}
+    >
+      <WhatsAppIcon className="h-5 w-5" />
+      {label}
     </a>
   );
 }

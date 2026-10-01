@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { ProductBanner } from "@/components/sections/ProductBanner";
 import { ProjectIncludes } from "@/components/sections/ProjectIncludes";
 import { WhyInnovage } from "@/components/sections/WhyInnovage";
 import { CaseStudyGrid } from "@/components/sections/CaseStudyGrid";
@@ -13,7 +14,8 @@ export default function HomePage() {
     <>
       <Hero />
       <ServicesGrid />
-      <ProjectIncludes tinted />
+      <ProductBanner />
+      <ProjectIncludes />
       <WhyInnovage tinted={false} />
       <CaseStudyGrid limit={3} tinted />
       <IndustriesGrid />

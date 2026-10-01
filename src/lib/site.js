@@ -816,6 +816,7 @@ export const nav = [
       blurb: s.blurb,
     })),
   },
+  { label: "TeckHub360", href: "/products/teckhub360" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Industries", href: "/industries" },
   { label: "Process", href: "/process" },
@@ -827,6 +828,7 @@ export const navCta = { label: "Get in Touch", href: "/contact" };
 /* ── Contact ───────────────────────────────────────────────────────────── */
 
 export const projectTypes = [
+  "TeckHub360 portal",
   "Custom software",
   "SaaS product",
   "Website or web app",
@@ -863,6 +865,7 @@ export const footerColumns = [
   {
     heading: "Company",
     links: [
+      { label: "TeckHub360", href: "/products/teckhub360" },
       { label: "About", href: "/about" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Industries", href: "/industries" },

@@ -19,6 +19,13 @@
   --band-alpha: 0.1;
 
   /* Derived surfaces, built from the tokens above so they follow the mode. */
+  /* Status colours. The product mockups show pass/flag states; a
+     hardcoded hex would fail one mode or the other. */
+  --ok: #15803d;
+  --ok-soft: color-mix(in srgb, #16a34a 14%, transparent);
+  --warn: #b45309;
+  --warn-soft: color-mix(in srgb, #d97706 16%, transparent);
+
   --hairline: color-mix(in srgb, var(--text) 12%, transparent);
   --surface: color-mix(in srgb, var(--text) 3%, transparent);
   --surface-strong: color-mix(in srgb, var(--text) 6%, transparent);
@@ -33,6 +40,11 @@
     --line: 200, 185, 255;
     --line-alpha: 0.14;
     --band-alpha: 0.16;
+
+    --ok: #4ade80;
+    --ok-soft: color-mix(in srgb, #4ade80 18%, transparent);
+    --warn: #fbbf24;
+    --warn-soft: color-mix(in srgb, #fbbf24 18%, transparent);
 
     --hairline: color-mix(in srgb, var(--text) 14%, transparent);
     --surface: color-mix(in srgb, var(--text) 4%, transparent);
@@ -49,6 +61,11 @@
   --line-alpha: 0.14;
   --band-alpha: 0.16;
 
+  --ok: #4ade80;
+  --ok-soft: color-mix(in srgb, #4ade80 18%, transparent);
+  --warn: #fbbf24;
+  --warn-soft: color-mix(in srgb, #fbbf24 18%, transparent);
+
   --hairline: color-mix(in srgb, var(--text) 14%, transparent);
   --surface: color-mix(in srgb, var(--text) 4%, transparent);
   --surface-strong: color-mix(in srgb, var(--text) 8%, transparent);
@@ -64,6 +81,10 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-btn-text: var(--btn-text);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
   --color-hairline: var(--hairline);
   --color-surface: var(--surface);
   --color-surface-strong: var(--surface-strong);

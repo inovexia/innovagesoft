@@ -1,8 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { submitEnquiry } from "@/lib/contact";
 import { budgets, projectTypes } from "@/lib/site";
+
+/**
+ * The TeckHub360 CTAs link here with ?enquiry=teckhub360-demo|teckhub360-pricing.
+ * Prefilling means the visitor does not have to restate what they just clicked.
+ */
+const ENQUIRIES = {
+  "teckhub360-demo": {
+    projectType: "TeckHub360 portal",
+    message: "I'd like to book a TeckHub360 demo for our firm.",
+  },
+  "teckhub360-pricing": {
+    projectType: "TeckHub360 portal",
+    message: "Please send TeckHub360 pricing for our firm.",
+  },
+};
 
 const fieldClass =
   "w-full rounded-xl border border-hairline bg-bg px-4 py-3 text-[0.97rem] text-text transition-colors duration-200 placeholder:text-muted hover:border-[color-mix(in_srgb,var(--text)_22%,transparent)] focus:border-accent";
@@ -11,6 +27,7 @@ const labelClass = "block text-[0.85rem] font-bold text-text";
 
 export function ContactForm() {
   const [status, setStatus] = useState("idle");
+  const prefill = ENQUIRIES[useSearchParams().get("enquiry")] ?? {};
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -33,7 +50,7 @@ export function ContactForm() {
         <select
           id="projectType"
           name="projectType"
-          defaultValue=""
+          defaultValue={prefill.projectType ?? ""}
           className={`${fieldClass} select-field mt-2`}
         >
           <option value="" disabled>
@@ -56,6 +73,7 @@ export function ContactForm() {
           name="message"
           rows={5}
           required
+          defaultValue={prefill.message ?? ""}
           className={`${fieldClass} mt-2 resize-y`}
           placeholder="What's the problem you're trying to solve?"
         />

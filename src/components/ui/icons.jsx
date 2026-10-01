@@ -217,6 +217,112 @@ export const ExternalIcon = (p) => (
   </Icon>
 );
 
+/* ── TeckHub360 modules ───────────────────────────────────────────────── */
+
+export const BuildingIcon = (p) => (
+  <Icon {...p}>
+    <path d="M3.75 20.5h16.5" />
+    <path d="M5.5 20.5V5a1.5 1.5 0 0 1 1.5-1.5h6A1.5 1.5 0 0 1 14.5 5v15.5" />
+    <path d="M14.5 10h3.5a1.5 1.5 0 0 1 1.5 1.5v9" />
+    <path d="M8.5 7.5h3M8.5 11h3M8.5 14.5h3" />
+  </Icon>
+);
+
+export const UserCheckIcon = (p) => (
+  <Icon {...p}>
+    <circle cx="9.5" cy="7.75" r="3.75" />
+    <path d="M3 20.25a6.5 6.5 0 0 1 11.25-4.4" />
+    <path d="m14.75 17.5 2 2 4-4.25" />
+  </Icon>
+);
+
+export const ChecklistIcon = (p) => (
+  <Icon {...p}>
+    <rect x="4.25" y="3.25" width="15.5" height="17.5" rx="2.5" />
+    <path d="m7.75 8.5 1.5 1.5 2.75-3" />
+    <path d="m7.75 15 1.5 1.5 2.75-3" />
+    <path d="M14.5 9h2.75M14.5 15.5h2.75" />
+  </Icon>
+);
+
+/** OCR: a document under a scan line. */
+export const ScanIcon = (p) => (
+  <Icon {...p}>
+    <path d="M3.25 7.75V5.5a2.25 2.25 0 0 1 2.25-2.25h2.25" />
+    <path d="M20.75 7.75V5.5a2.25 2.25 0 0 0-2.25-2.25h-2.25" />
+    <path d="M3.25 16.25v2.25a2.25 2.25 0 0 0 2.25 2.25h2.25" />
+    <path d="M20.75 16.25v2.25a2.25 2.25 0 0 1-2.25 2.25h-2.25" />
+    <path d="M3.25 12h17.5" />
+    <path d="M8 8.75h5M8 15.25h8" opacity={0.55} />
+  </Icon>
+);
+
+/** The filing pipeline: ordered stages. */
+export const PipelineIcon = (p) => (
+  <Icon {...p}>
+    <circle cx="5" cy="12" r="2.25" />
+    <circle cx="12" cy="12" r="2.25" />
+    <circle cx="19" cy="12" r="2.25" />
+    <path d="M7.25 12h2.5M14.25 12h2.5" />
+  </Icon>
+);
+
+export const ChartIcon = (p) => (
+  <Icon {...p}>
+    <path d="M3.75 3.75v14.5a2 2 0 0 0 2 2h14.5" />
+    <path d="M7.75 16.5v-3.75M11.75 16.5v-7.5M15.75 16.5v-5.25M19.75 16.5V7" />
+  </Icon>
+);
+
+export const CalendarIcon = (p) => (
+  <Icon {...p}>
+    <rect x="3.25" y="5" width="17.5" height="15.75" rx="2.5" />
+    <path d="M3.25 9.75h17.5" />
+    <path d="M8 3.25v3.5M16 3.25v3.5" />
+    <path d="M7.5 13.5h2.25M7.5 17h2.25M14.25 13.5h2.25" />
+  </Icon>
+);
+
+export const InvoiceIcon = (p) => (
+  <Icon {...p}>
+    <path d="M5.5 2.75h13v18.5l-2.6-1.75-2.6 1.75-2.6-1.75-2.6 1.75V2.75z" />
+    <path d="M9 8h6M9 12h6M9 15.5h3.5" opacity={0.7} />
+  </Icon>
+);
+
+export const PayrollIcon = (p) => (
+  <Icon {...p}>
+    <rect x="2.75" y="5.75" width="18.5" height="12.5" rx="2.5" />
+    <circle cx="12" cy="12" r="2.75" />
+    <path d="M6 9.5v5M18 9.5v5" />
+  </Icon>
+);
+
+export const ListIcon = (p) => (
+  <Icon {...p}>
+    <path d="M8.5 6.5h12M8.5 12h12M8.5 17.5h12" />
+    <path d="M4 6.5h.01M4 12h.01M4 17.5h.01" strokeWidth={2.4} />
+  </Icon>
+);
+
+export const productIcons = {
+  building: BuildingIcon,
+  userCheck: UserCheckIcon,
+  checklist: ChecklistIcon,
+  scan: ScanIcon,
+  pipeline: PipelineIcon,
+  chart: ChartIcon,
+  calendar: CalendarIcon,
+  invoice: InvoiceIcon,
+  payroll: PayrollIcon,
+  shield: ShieldIcon,
+  clock: ClockIcon,
+  list: ListIcon,
+  team: TeamIcon,
+  route: RouteIcon,
+  partnership: PartnershipIcon,
+};
+
 export const stageIcons = {
   discovery: DiscoveryIcon,
   design: DesignIcon,
