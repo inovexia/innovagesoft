@@ -12,7 +12,6 @@ export function CaseStudyGrid({
   items,
   limit,
   heading = "Work we're proud of.",
-  eyebrow = "Selected projects",
   showAllLink = true,
   bare = false,
 }) {
@@ -49,7 +48,7 @@ export function CaseStudyGrid({
 
                 <p className="mt-1.5 font-semibold text-accent">{study.project}</p>
 
-                <p className="mt-3.5 text-[0.82rem] font-bold uppercase tracking-[0.1em] text-muted">
+                <p className="mt-3.5 text-[0.9rem] font-medium text-muted">
                   {study.industry} <span aria-hidden="true">·</span> {study.type}
                 </p>
 
@@ -83,7 +82,7 @@ export function CaseStudyGrid({
 
   return (
     <Section id="case-studies" tinted={tinted}>
-      <SectionHeading eyebrow={eyebrow} heading={heading} />
+      <SectionHeading heading={heading} />
       {grid}
     </Section>
   );

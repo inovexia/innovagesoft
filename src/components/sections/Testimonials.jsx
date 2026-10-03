@@ -10,7 +10,6 @@ export function Testimonials() {
   return (
     <Section id="testimonials">
       <SectionHeading
-        eyebrow="What customers say"
         heading="Don't take our word for it."
       />
 

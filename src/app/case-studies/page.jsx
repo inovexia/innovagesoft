@@ -23,7 +23,6 @@ export default function CaseStudiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Case studies"
         title="Work we're proud of."
         intro="Each of these started as a manual process someone had learned to live with. Here is what was broken, what we built, and what changed afterwards."
         media={
@@ -61,7 +60,7 @@ export default function CaseStudiesPage() {
               <div className="flex flex-col justify-center">
                 <Reveal delay={80}>
                   <div className="flex flex-wrap items-center gap-3">
-                    <p className="text-[0.8rem] font-bold uppercase tracking-[0.12em] text-accent">
+                    <p className="text-[0.95rem] font-semibold text-accent">
                       {study.industry} <span aria-hidden="true">·</span> {study.type}
                     </p>
                     {study.placeholder ? <PlaceholderBadge /> : null}

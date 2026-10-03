@@ -19,7 +19,6 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About us"
         title="A small senior team that builds like owners."
         intro={`We're ${company.name}, a team of designers and engineers based in Mississauga, Ontario. For over ten years we've helped growing businesses across Canada replace slow, manual work with software that just works.`}
         media={
@@ -75,7 +74,6 @@ export default function AboutPage() {
 
       <Section tinted>
         <SectionHeading
-          eyebrow="How we operate"
           heading="Three commitments we don't negotiate on."
         />
 

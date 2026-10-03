@@ -16,14 +16,12 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Services"
         title="Four things we do, and do properly."
         intro="We are deliberately not a full-service agency. These are the areas we have shipped repeatedly for Canadian businesses, and the ones we will take responsibility for end to end."
         media={<ProductVisual className="px-2 sm:px-8 lg:px-0" />}
       />
 
       <ServicesGrid
-        eyebrow="What we build"
         heading="Pick the shape of your problem."
         intro="Most engagements start in one of these four and grow into another. The delivery process is identical whichever door you come in through."
       />

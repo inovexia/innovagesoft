@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
-import { Section, SectionHeading, Eyebrow } from "@/components/ui/Section";
+import { Section, SectionHeading } from "@/components/ui/Section";
 import { Faq } from "@/components/ui/Faq";
 import { ArrowRightIcon, CheckIcon, productIcons } from "@/components/ui/icons";
 import {
@@ -70,7 +70,6 @@ export default function TeckHubPage() {
   return (
     <>
       <PageHero
-        eyebrow={`Innovage product · ${product.name}`}
         title={product.tagline}
         intro={product.positioning}
         media={<DashboardScreen />}
@@ -81,7 +80,6 @@ export default function TeckHubPage() {
       {/* ── Who it's for ─────────────────────────────────────────────── */}
       <Section>
         <SectionHeading
-          eyebrow="Who it's for"
           heading="Built for the firms doing the filing, not for enterprise procurement."
           intro="TeckHub360 came out of building portals for Canadian practices one at a time. It handles both sides of a typical firm's book — incorporated businesses on GST/HST, and individuals on personal returns."
         />
@@ -109,7 +107,6 @@ export default function TeckHubPage() {
       {/* ── Module map ───────────────────────────────────────────────── */}
       <Section tinted>
         <SectionHeading
-          eyebrow="What's inside"
           heading="Ten modules, one login."
           intro="Everything a practice touches during filing season, in one portal — rather than a document tool, a billing tool, a spreadsheet and an inbox. A demo goes into any of them in depth."
         />
@@ -141,22 +138,17 @@ export default function TeckHubPage() {
 
       {/* ── OCR: the flagship ────────────────────────────────────────── */}
       <Section>
-        <div className="flex flex-wrap items-center gap-3">
-          <Reveal>
-            <Eyebrow>OCR &amp; CRA coding</Eyebrow>
-          </Reveal>
-          <Reveal delay={40}>
-            <RollingOut />
-          </Reveal>
-        </div>
+        <Reveal>
+          <RollingOut />
+        </Reveal>
 
-        <Reveal delay={80}>
+        <Reveal delay={60}>
           <h2 className="mt-5 max-w-[22ch] text-[clamp(1.85rem,3.6vw,2.9rem)] font-extrabold leading-[1.1] tracking-[-0.025em]">
             {ocr.heading}
           </h2>
         </Reveal>
 
-        <Reveal delay={140}>
+        <Reveal delay={120}>
           <p className="mt-6 max-w-[62ch] text-[1.05rem] leading-[1.7] text-muted">
             {ocr.intro}
           </p>
@@ -198,7 +190,6 @@ export default function TeckHubPage() {
       {/* ── Filing pipelines ─────────────────────────────────────────── */}
       <Section tinted>
         <SectionHeading
-          eyebrow="Filing pipelines"
           heading="Two ordered paths, so nothing gets filed out of sequence."
           intro="Each stage unlocks the next, and a partner can see exactly where any client sits without asking the accountant handling it."
         />
@@ -209,7 +200,7 @@ export default function TeckHubPage() {
 
       {/* ── Billing ──────────────────────────────────────────────────── */}
       <Section>
-        <SectionHeading eyebrow="Billing" heading={billing.heading} intro={billing.intro} />
+        <SectionHeading heading={billing.heading} intro={billing.intro} />
 
         <div className="mt-16 grid gap-5 md:grid-cols-3">
           {billing.items.map((item, i) => {
@@ -237,7 +228,6 @@ export default function TeckHubPage() {
       {/* ── Documents & deadlines ────────────────────────────────────── */}
       <Section tinted>
         <SectionHeading
-          eyebrow="Documents & deadlines"
           heading="Chasing paperwork, without the chasing."
           intro="Clients work from a checklist rather than a reply-all thread, and your team sees every obligation across the whole book in one tracker."
         />
@@ -257,19 +247,16 @@ export default function TeckHubPage() {
         <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
           <div>
             <Reveal>
-              <Eyebrow>White-label</Eyebrow>
-            </Reveal>
-            <Reveal delay={80}>
-              <h2 className="mt-5 max-w-[16ch] text-[clamp(1.85rem,3.6vw,2.9rem)] font-extrabold leading-[1.1] tracking-[-0.025em]">
+              <h2 className="max-w-[16ch] text-[clamp(1.85rem,3.6vw,2.9rem)] font-extrabold leading-[1.1] tracking-[-0.025em]">
                 {whiteLabel.heading}
               </h2>
             </Reveal>
-            <Reveal delay={140}>
+            <Reveal delay={80}>
               <p className="mt-6 max-w-[50ch] text-[1.05rem] leading-[1.7] text-muted">
                 {whiteLabel.intro}
               </p>
             </Reveal>
-            <Reveal delay={200}>
+            <Reveal delay={140}>
               <ul className="mt-8 grid gap-3.5">
                 {whiteLabel.points.map((point) => (
                   <li key={point} className="flex items-start gap-3">
@@ -301,11 +288,8 @@ export default function TeckHubPage() {
           </Reveal>
 
           <div>
-            <Reveal delay={60}>
-              <Eyebrow>Roles &amp; security</Eyebrow>
-            </Reveal>
-            <Reveal delay={110}>
-              <h2 className="mt-5 max-w-[18ch] text-[clamp(1.85rem,3.6vw,2.9rem)] font-extrabold leading-[1.1] tracking-[-0.025em]">
+            <Reveal>
+              <h2 className="max-w-[18ch] text-[clamp(1.85rem,3.6vw,2.9rem)] font-extrabold leading-[1.1] tracking-[-0.025em]">
                 Tax documents deserve more than a password.
               </h2>
             </Reveal>
@@ -339,7 +323,6 @@ export default function TeckHubPage() {
       {/* ── Rolling out soon ─────────────────────────────────────────── */}
       <Section>
         <SectionHeading
-          eyebrow="Rolling out soon"
           heading="And a good deal more on the way."
           intro="These are in build now. A demo covers where each one sits and what lands first — we would rather tell you that on a call than put a date on a web page."
         />

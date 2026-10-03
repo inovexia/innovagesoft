@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
-import { Section, Eyebrow } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { CheckIcon } from "@/components/ui/icons";
 import { PlaceholderBadge } from "@/components/ui/PlaceholderBadge";
 import { sitecare } from "@/lib/site";
@@ -11,22 +11,18 @@ export function Sitecare({ tinted = true }) {
       <div className="grid gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
         <div>
           <Reveal>
-            <Eyebrow>Ongoing website care</Eyebrow>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <h2 className="mt-5 max-w-[16ch] text-[clamp(1.85rem,3.6vw,2.9rem)] font-extrabold leading-[1.1] tracking-[-0.025em]">
+            <h2 className="max-w-[16ch] text-[clamp(1.85rem,3.6vw,2.9rem)] font-extrabold leading-[1.1] tracking-[-0.025em]">
               {sitecare.heading}
             </h2>
           </Reveal>
 
-          <Reveal delay={160}>
+          <Reveal delay={80}>
             <p className="mt-6 max-w-[50ch] text-[1.05rem] leading-[1.7] text-muted">
               {sitecare.intro}
             </p>
           </Reveal>
 
-          <Reveal delay={220}>
+          <Reveal delay={140}>
             <div className="mt-9 rounded-2xl border border-hairline bg-bg p-6">
               <div className="flex flex-wrap items-center gap-3">
                 <p className="text-[0.78rem] font-bold uppercase tracking-[0.12em] text-muted">

@@ -37,7 +37,6 @@ export default function ProcessPage() {
   return (
     <>
       <PageHero
-        eyebrow="How we work"
         title="Every project includes all seven stages."
         intro="No surprise line items halfway through, and no stage quietly dropped to hit a number. Each one is scoped and priced before we start, and you see working software throughout."
         media={
@@ -104,7 +103,6 @@ export default function ProcessPage() {
 
       <Section tinted>
         <SectionHeading
-          eyebrow="What it costs"
           heading="Fixed price, agreed before we build."
           intro="Discovery is priced on its own and produces a scope precise enough to quote the rest with confidence. If the estimate afterwards is still a wide range, the discovery did not do its job."
         />

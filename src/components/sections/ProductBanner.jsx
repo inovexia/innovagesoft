@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
-import { Eyebrow } from "@/components/ui/Section";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import { DashboardScreen } from "@/components/teckhub/screens";
 import { highlights, product } from "@/lib/teckhub";
@@ -27,13 +26,9 @@ export function ProductBanner() {
       <div className="relative mx-auto grid w-[min(100%-2rem,82rem)] items-center gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
         <div>
           <Reveal>
-            <Eyebrow>Our own product</Eyebrow>
-          </Reveal>
-
-          <Reveal delay={80}>
             <h2
               id="product-banner-heading"
-              className="mt-5 text-[clamp(2rem,4.4vw,3.2rem)] font-extrabold leading-[1.06] tracking-[-0.03em]"
+              className="text-[clamp(2rem,4.4vw,3.2rem)] font-extrabold leading-[1.06] tracking-[-0.03em]"
             >
               {product.name}
             </h2>
@@ -42,13 +37,13 @@ export function ProductBanner() {
             </p>
           </Reveal>
 
-          <Reveal delay={160}>
+          <Reveal delay={80}>
             <p className="mt-6 max-w-[52ch] text-[1.05rem] leading-[1.65] text-muted">
               {product.shortPitch}
             </p>
           </Reveal>
 
-          <Reveal delay={220}>
+          <Reveal delay={140}>
             <dl className="mt-9 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
               {highlights.map((item) => (
                 <div key={item.label}>
@@ -66,7 +61,7 @@ export function ProductBanner() {
             </dl>
           </Reveal>
 
-          <Reveal delay={280}>
+          <Reveal delay={200}>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link
                 href="/products/teckhub360"

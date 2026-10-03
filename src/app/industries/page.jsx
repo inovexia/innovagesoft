@@ -15,7 +15,6 @@ export default function IndustriesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Industries"
         title="We've seen your problem before."
         intro="Ten years of building for Canadian businesses means we usually arrive already knowing the shape of the problem — and where the expensive surprises tend to hide."
         media={
@@ -30,7 +29,6 @@ export default function IndustriesPage() {
       />
 
       <IndustriesGrid
-        eyebrow="Who we work with"
         heading="Six sectors we know well."
         intro="We are not limited to these, but this is where we have the most pattern recognition — and where discovery moves fastest because we already know the right questions."
       />
@@ -38,7 +36,6 @@ export default function IndustriesPage() {
       <CaseStudyGrid
         tinted
         limit={3}
-        eyebrow="Proof"
         heading="What that looks like in practice."
       />
 

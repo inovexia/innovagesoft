@@ -21,7 +21,6 @@ export default function BlogPage() {
   return (
     <>
       <PageHero
-        eyebrow="Blog"
         title="What we've learned building this stuff."
         intro="No thought leadership, no trend roundups. Just the things we find ourselves explaining to clients often enough that they are worth writing down."
         media={
@@ -49,7 +48,7 @@ export default function BlogPage() {
               sizes="(max-width: 768px) 100vw, 45vw"
             />
             <div className="flex flex-col justify-center">
-              <p className="flex flex-wrap items-center gap-x-2.5 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-accent">
+              <p className="flex flex-wrap items-center gap-x-2.5 text-[0.9rem] font-semibold text-accent">
                 {lead.category}
                 <span className="text-muted" aria-hidden="true">·</span>
                 <span className="text-muted">{formatDate(lead.date)}</span>
@@ -84,7 +83,7 @@ export default function BlogPage() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                 />
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="flex flex-wrap items-center gap-x-2 text-[0.74rem] font-bold uppercase tracking-[0.12em] text-accent">
+                  <p className="flex flex-wrap items-center gap-x-2 text-[0.85rem] font-semibold text-accent">
                     {post.category}
                     <span className="text-muted" aria-hidden="true">·</span>
                     <span className="text-muted">{post.readingTime}</span>

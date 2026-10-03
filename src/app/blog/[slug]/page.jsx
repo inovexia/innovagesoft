@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Photo } from "@/components/ui/Photo";
 import { Reveal } from "@/components/ui/Reveal";
-import { Section, Eyebrow } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import { formatDate } from "@/lib/format";
@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }) {
             </Reveal>
 
             <Reveal delay={60}>
-              <p className="mt-6 flex flex-wrap items-center gap-x-2.5 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-accent">
+              <p className="mt-6 flex flex-wrap items-center gap-x-2.5 text-[0.92rem] font-semibold text-accent">
                 {post.category}
                 <span className="text-muted" aria-hidden="true">·</span>
                 <time className="text-muted" dateTime={post.date}>
@@ -114,7 +114,9 @@ export default async function BlogPostPage({ params }) {
 
       <Section tinted>
         <Reveal>
-          <Eyebrow>Keep reading</Eyebrow>
+          <h2 className="text-[clamp(1.4rem,2.6vw,2rem)] font-extrabold tracking-[-0.025em]">
+            Keep reading
+          </h2>
         </Reveal>
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -124,7 +126,7 @@ export default async function BlogPostPage({ params }) {
                 href={`/blog/${p.slug}`}
                 className="group flex h-full flex-col rounded-2xl border border-hairline bg-bg p-6 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--accent)_40%,transparent)]"
               >
-                <p className="text-[0.74rem] font-bold uppercase tracking-[0.12em] text-accent">
+                <p className="text-[0.85rem] font-semibold text-accent">
                   {p.category}
                 </p>
                 <h3 className="mt-3 flex-1 text-[1.05rem] font-extrabold leading-[1.28] tracking-[-0.02em]">

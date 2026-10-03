@@ -34,7 +34,6 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Get in touch"
         title="Let's talk about what you're trying to build."
         intro="A 30-minute call, no pitch deck. We'll ask about your business, tell you honestly whether custom software is the right move, and if it is, what it would take."
         media={

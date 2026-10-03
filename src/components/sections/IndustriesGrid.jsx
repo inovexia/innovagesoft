@@ -4,7 +4,7 @@ import { Photo } from "@/components/ui/Photo";
 import { CheckIcon } from "@/components/ui/icons";
 import { industries } from "@/lib/site";
 
-export function IndustriesGrid({ tinted = false, bare = false, heading, eyebrow, intro }) {
+export function IndustriesGrid({ tinted = false, bare = false, heading, intro }) {
   const grid = (
     <div className={bare ? "grid gap-5 md:grid-cols-2 xl:grid-cols-3" : "mt-16 grid gap-5 md:grid-cols-2 xl:grid-cols-3"}>
       {industries.map((industry, i) => (
@@ -50,7 +50,6 @@ export function IndustriesGrid({ tinted = false, bare = false, heading, eyebrow,
   return (
     <Section id="industries" tinted={tinted}>
       <SectionHeading
-        eyebrow={eyebrow ?? "Who we work with"}
         heading={heading ?? "We've seen your problem before."}
         intro={
           intro ??

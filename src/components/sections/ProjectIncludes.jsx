@@ -11,7 +11,6 @@ export function ProjectIncludes({ tinted = false }) {
   return (
     <Section id="includes" tinted={tinted}>
       <SectionHeading
-        eyebrow="Every project includes"
         heading="Seven stages, on every engagement."
         intro="No surprise line items halfway through. Discovery to support, each stage is scoped and priced before we start."
       />

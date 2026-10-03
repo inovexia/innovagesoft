@@ -39,7 +39,6 @@ export default async function ServicePage({ params }) {
   return (
     <>
       <PageHero
-        eyebrow="Services"
         title={service.headline}
         intro={service.intro}
         media={
@@ -137,7 +136,6 @@ export default async function ServicePage({ params }) {
       {related.length ? (
         <Section>
           <SectionHeading
-            eyebrow="Related work"
             heading={`${service.navLabel} we've shipped.`}
           />
           <div className="mt-16">

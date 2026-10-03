@@ -8,7 +8,6 @@ export function WhyInnovage({ tinted = true, image = "dev-desks", imageAlt = "Tw
   return (
     <Section id="why-innovage" tinted={tinted}>
       <SectionHeading
-        eyebrow="Why Innovage"
         heading="Built by people who stay."
       />
 

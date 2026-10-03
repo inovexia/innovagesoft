@@ -13,11 +13,10 @@ const artFor = {
   "ai-automation": "automation",
 };
 
-export function ServicesGrid({ tinted = false, heading, eyebrow, intro }) {
+export function ServicesGrid({ tinted = false, heading, intro }) {
   return (
     <Section id="services" tinted={tinted}>
       <SectionHeading
-        eyebrow={eyebrow ?? "What we build"}
         heading={heading ?? "Software that fits your business, not the other way around."}
         intro={
           intro ??

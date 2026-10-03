@@ -22,7 +22,7 @@ export function PipelineTracks({ className = "" }) {
               <h3 className="text-[1.15rem] font-extrabold tracking-[-0.02em]">
                 {pipeline.name}
               </h3>
-              <p className="mt-1 text-[0.8rem] font-bold uppercase tracking-[0.1em] text-accent">
+              <p className="mt-1 text-[0.92rem] font-semibold text-accent">
                 {pipeline.subtitle}
               </p>
             </div>
