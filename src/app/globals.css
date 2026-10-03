@@ -19,6 +19,21 @@
   --band-alpha: 0.1;
 
   /* Derived surfaces, built from the tokens above so they follow the mode. */
+  /* Illustration palette. The hero artwork's fills are tokenised so the
+     figures don't vanish against the dark canvas; `--accent` carries the
+     browser bar and chart markers in both modes. */
+  --ill-skin: #f0a79f;
+  --ill-body: #3b2e66;
+  --ill-ink: #241b40;
+  --ill-paper: #ffffff;
+  --ill-fill: #e9e2f9;
+  --ill-fill-2: #f4f0fd;
+  --ill-fill-3: #ece6fa;
+  --ill-line: #cec3ec;
+  --ill-chart: #dcd0f7;
+  --ill-hair: #241b40;
+  --ill-top: #6b5ba8;
+
   /* Status colours. The product mockups show pass/flag states; a
      hardcoded hex would fail one mode or the other. */
   --ok: #15803d;
@@ -41,6 +56,21 @@
     --line-alpha: 0.14;
     --band-alpha: 0.16;
 
+    --ill-skin: #f0a79f;
+    --ill-body: #afa1e2;
+    --ill-ink: #e2daf6;
+    --ill-paper: #140f2b;
+    --ill-fill: #2c2450;
+    --ill-fill-2: #221b40;
+    --ill-fill-3: #292148;
+    --ill-line: #3c3266;
+  --ill-chart: #3a2f66;
+  --ill-hair: #52447f;
+  --ill-top: #c9bef0;
+    --ill-chart: #3a2f66;
+    --ill-hair: #52447f;
+    --ill-top: #c9bef0;
+
     --ok: #4ade80;
     --ok-soft: color-mix(in srgb, #4ade80 18%, transparent);
     --warn: #fbbf24;
@@ -60,6 +90,15 @@
   --line: 200, 185, 255;
   --line-alpha: 0.14;
   --band-alpha: 0.16;
+
+  --ill-skin: #f0a79f;
+  --ill-body: #afa1e2;
+  --ill-ink: #e2daf6;
+  --ill-paper: #140f2b;
+  --ill-fill: #2c2450;
+  --ill-fill-2: #221b40;
+  --ill-fill-3: #292148;
+  --ill-line: #3c3266;
 
   --ok: #4ade80;
   --ok-soft: color-mix(in srgb, #4ade80 18%, transparent);

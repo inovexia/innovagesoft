@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowRightIcon } from "@/components/ui/icons";
-import { GrowthArt } from "@/components/ui/GrowthArt";
+import { GrowthScene } from "@/components/ui/GrowthScene";
 import { clients } from "@/lib/site";
 import { HeroMesh } from "./HeroMesh";
 
@@ -67,7 +67,7 @@ export function Hero() {
 
         {/* ── Product visual ─────────────────────────────────────────── */}
         <Reveal delay={200} className="px-2 sm:px-10 lg:px-0">
-          <GrowthArt />
+          <GrowthScene />
         </Reveal>
       </div>
     </section>
