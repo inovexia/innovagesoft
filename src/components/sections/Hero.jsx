@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowRightIcon } from "@/components/ui/icons";
-import { ProductVisual } from "@/components/ui/ProductVisual";
+import { GrowthArt } from "@/components/ui/GrowthArt";
 import { clients } from "@/lib/site";
 import { HeroMesh } from "./HeroMesh";
 
@@ -66,10 +66,8 @@ export function Hero() {
         </div>
 
         {/* ── Product visual ─────────────────────────────────────────── */}
-        {/* Narrow screens get the dashboard alone; the phone and automation
-            chip inside it drop out at their own breakpoints. */}
-        <Reveal delay={200} className="px-2 sm:px-8 lg:px-0">
-          <ProductVisual />
+        <Reveal delay={200} className="px-2 sm:px-10 lg:px-0">
+          <GrowthArt />
         </Reveal>
       </div>
     </section>
