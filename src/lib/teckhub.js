@@ -17,7 +17,7 @@ export const product = {
   positioning:
     "One place for your clients to send documents, for your team to code and file them, and for everyone to see where a return actually stands.",
   shortPitch:
-    "A white-label client portal built for Canadian accounting firms — document intake, OCR that maps receipts to CRA GIFI codes, GST/HST and personal filing pipelines, invoicing and payroll, under your own branding.",
+    "A white-label client portal built for Canadian accounting firms — document intake, OCR that maps receipts to CRA GIFI codes, GST/HST and personal filing pipelines, financial invoices and payroll, under your own branding.",
   demoHref: "/contact?enquiry=teckhub360-demo",
   pricingHref: "/contact?enquiry=teckhub360-pricing",
 };
@@ -26,7 +26,7 @@ export const product = {
 export const highlights = [
   { value: "OCR", label: "Receipts coded to CRA GIFI" },
   { value: "2", label: "Filing pipelines, business and personal" },
-  { value: "10", label: "Modules in one portal" },
+  { value: "10+", label: "Modules in one portal" },
   { value: "100%", label: "White-label, your branding" },
 ];
 
@@ -36,76 +36,52 @@ export const audience = [
   {
     icon: "team",
     title: "Accounting firms",
-    body: "Multiple accountants, shared client load, and a partner who needs to see what is outstanding without asking anyone.",
+    body: "Several accountants, a shared client load, and a partner who wants to see what is outstanding without asking anyone.",
   },
   {
     icon: "route",
     title: "Bookkeeping practices",
-    body: "High document volume, repetitive coding work, and clients who send receipts by whatever means is nearest to hand.",
+    body: "High document volume and clients who send receipts by whatever means is nearest to hand.",
   },
   {
     icon: "partnership",
     title: "Firms with both client types",
-    body: "Incorporated businesses on GST/HST and individual filers on personal returns, in one portal rather than two systems.",
+    body: "Incorporated businesses and individual filers in one portal rather than two systems.",
   },
 ];
 
 /* ── Modules ───────────────────────────────────────────────────────────── */
 
 export const modules = [
-  {
-    icon: "building",
-    title: "Business clients",
-    body: "Organisations with their own users, logos, agreements and financial year end. The due date derives from the year end automatically.",
-  },
-  {
-    icon: "userCheck",
-    title: "Individual filers",
-    body: "Personal-return clients, their assigned accountant, and the categories that generate their checklist.",
-  },
-  {
-    icon: "checklist",
-    title: "Checklists & documents",
-    body: "A three-level checklist with a firm-wide default library, upload limits and a review step on every document.",
-  },
+  { icon: "building", title: "Business clients", body: "Organisations, their users, agreements and year ends." },
+  { icon: "userCheck", title: "Individual filers", body: "Personal-return clients and their assigned accountant." },
+  { icon: "checklist", title: "Checklists & documents", body: "A structured request list clients work through themselves." },
   {
     icon: "scan",
     title: "OCR & CRA coding",
-    body: "Extract figures from uploaded receipts and invoices, suggest a GIFI code, and show a confidence score before anyone accepts it.",
+    body: "Receipts read and matched to CRA GIFI codes.",
     shipping: "rolling-out",
   },
+  { icon: "pipeline", title: "Filing pipelines", body: "Ordered stages from documents in to return filed." },
   {
-    icon: "pipeline",
-    title: "Prep Accounts",
-    body: "Five ordered steps taking a business client from a pile of receipts to a filed GST/HST return with the CRA confirmation on file.",
+    icon: "invoice",
+    title: "Financial invoices",
+    body: "One-off and T4 invoices, standing agreements and two payment ledgers.",
   },
   {
     icon: "chart",
     title: "Financial reports",
-    body: "Profit & loss and balance sheet uploads driving dashboard charts and info cards.",
+    body: "Profit & loss and balance sheet, driving live dashboards.",
     shipping: "rolling-out",
   },
-  {
-    icon: "calendar",
-    title: "Deadlines & calendar",
-    body: "A cross-client deadline tracker with the scheduling rules the calendar enforces, so nothing turns up as a surprise.",
-  },
-  {
-    icon: "invoice",
-    title: "Invoices & payments",
-    body: "One-off and recurring agreements, T4 invoices for individual filers, and two payment ledgers — business and personal.",
-  },
+  { icon: "calendar", title: "Deadlines & calendar", body: "Every obligation across the whole book in one tracker." },
   {
     icon: "payroll",
     title: "Payroll",
-    body: "The pay-run cycle from agreement to processed run, with payslips, PD7A and T4 documents filed against the client.",
+    body: "Pay runs, payslips, PD7A and T4 against each client.",
     shipping: "rolling-out",
   },
-  {
-    icon: "shield",
-    title: "Roles & security",
-    body: "Role-scoped menus, three invitation paths, OTP two-factor login, idle auto-logout and a full activity log.",
-  },
+  { icon: "shield", title: "Roles & security", body: "Role-scoped access, two-factor login and activity logs." },
 ];
 
 /* ── OCR ───────────────────────────────────────────────────────────────── */
@@ -113,31 +89,12 @@ export const modules = [
 export const ocr = {
   heading: "Receipts in. CRA GIFI codes out. A human still signs off.",
   intro:
-    "Coding a shoebox of receipts is the least pleasant, most repetitive part of the job. TeckHub360 reads each uploaded document, pulls out the totals and tax, and proposes a CRA GIFI code against the full General Index of Financial Information.",
+    "Coding a shoebox of receipts is the least pleasant, most repetitive part of the job. TeckHub360 reads each uploaded document, pulls out the totals and the tax, and matches it against the CRA's General Index of Financial Information.",
   honesty:
-    "It does not file anything on its own. Every extraction carries a confidence score, anything below 70% is flagged for manual verification, and an accountant confirms or corrects the code before it moves on. That is deliberate — the value is in removing the typing, not the judgement.",
-  steps: [
-    {
-      title: "Upload",
-      body: "The client uploads against a checklist item, or your team adds it directly.",
-    },
-    {
-      title: "Extract",
-      body: "OCR reads the document and returns the raw text, the total and the tax.",
-    },
-    {
-      title: "Suggest",
-      body: "The text is ranked against the CRA GIFI index and a code is proposed, with the reason.",
-    },
-    {
-      title: "Verify",
-      body: "Confidence under 70% is flagged. The accountant confirms or picks a different code.",
-    },
-    {
-      title: "File",
-      body: "Coded figures roll into the GST/HST return and the CRA confirmation is stored.",
-    },
-  ],
+    "It does not file anything on its own. Every extraction carries a confidence score, low-confidence results are flagged for manual verification, and an accountant confirms the code before it moves on. The value is in removing the typing, not the judgement.",
+  /* Shown in the review mockup. The full ranking behaviour, thresholds and
+     correction flow are deliberately not described here — that is what the
+     demo is for. */
   examples: [
     { type: "Fuel receipt", code: "9281", name: "Motor Vehicle", confidence: 94 },
     { type: "Restaurant receipt", code: "8523", name: "Meals and entertainment", confidence: 88 },
@@ -148,24 +105,50 @@ export const ocr = {
 
 /* ── Filing pipelines ──────────────────────────────────────────────────── */
 
+/* Stage counts and the two ends only. Naming every stage hands over the
+   workflow; walking a firm through it is the demo. */
 export const pipelines = [
   {
     name: "Prep Accounts",
     subtitle: "Business clients · GST/HST",
-    steps: [
-      "Subcategories",
-      "Documents",
-      "Code summary",
-      "Return form",
-      "Filed with CRA",
-    ],
+    count: 5,
+    first: "Documents in",
+    last: "Filed with CRA",
   },
   {
     name: "Finalize Account",
     subtitle: "Individual filers · Personal return",
-    steps: ["Subcategories", "Documents", "Code summary", "Tax return form"],
+    count: 4,
+    first: "Documents in",
+    last: "Return filed",
   },
 ];
+
+/* ── Billing ───────────────────────────────────────────────────────────── */
+
+export const billing = {
+  heading: "Billing that knows which client it is looking at.",
+  intro:
+    "Invoicing sits inside the portal rather than beside it, so what you billed and what they paid are attached to the same client record as the return.",
+  items: [
+    {
+      icon: "invoice",
+      title: "Financial invoices",
+      body: "One-off invoices for business clients and T4 invoices for individual filers, each with its own numbering and client view.",
+    },
+    {
+      icon: "pipeline",
+      title: "Standing agreements",
+      body: "Agreed terms on the record, with the invoices raised against them in one place.",
+      shipping: "rolling-out",
+    },
+    {
+      icon: "chart",
+      title: "Two payment ledgers",
+      body: "Business and individual payments tracked separately, because they reconcile differently.",
+    },
+  ],
+};
 
 /* ── White-label ───────────────────────────────────────────────────────── */
 
@@ -184,25 +167,50 @@ export const whiteLabel = {
 /* ── Security ──────────────────────────────────────────────────────────── */
 
 export const security = [
+  { icon: "shield", title: "Two-factor on every login", body: "A one-time code each time, not just on a new device." },
+  { icon: "clock", title: "Idle auto-logout", body: "An unattended screen is not an open door." },
+  { icon: "userCheck", title: "Role-scoped access", body: "A client sees their own organisation and nothing else." },
+  { icon: "list", title: "Activity logs", body: "Who did what, and when, on every record that matters." },
+];
+
+/* ── Rolling out soon ──────────────────────────────────────────────────── */
+
+/**
+ * Every item here is already in build — taken from the product's own
+ * "Not yet built" list in `.mex/ROUTER.md`, not invented for the page.
+ * Deliberately no dates: say "soon" on a website and you can keep the
+ * promise; name a month and you cannot.
+ */
+export const rollingOut = [
   {
-    icon: "shield",
-    title: "Two-factor on every login",
-    body: "A one-time code is required each time, not just on a new device.",
+    icon: "invoice",
+    title: "Recurring invoice agreements",
+    body: "Standing agreements that raise invoices on a schedule, with client acceptance and automatic reminders.",
   },
   {
-    icon: "clock",
-    title: "Idle auto-logout",
-    body: "Sessions end on their own, so an unattended screen in a client's office is not an open door.",
+    icon: "chat",
+    title: "Secure in-portal messaging",
+    body: "Firm-to-client conversations against the client record, so decisions stop living in someone's inbox.",
   },
   {
-    icon: "userCheck",
-    title: "Role-scoped access",
-    body: "The sidebar and the data behind it are both filtered by role. A client sees their own organisation and nothing else.",
+    icon: "pipeline",
+    title: "More return types",
+    body: "T2, PD7A and T4 pipelines alongside the GST/HST and personal flows.",
   },
   {
-    icon: "list",
-    title: "Activity logs",
-    body: "Who did what, and when, against every record that matters.",
+    icon: "chart",
+    title: "Combined financial import",
+    body: "One upload carrying both the profit & loss and the balance sheet.",
+  },
+  {
+    icon: "payroll",
+    title: "Payroll dashboards",
+    body: "A per-company payroll overview for the accountant alongside the client's.",
+  },
+  {
+    icon: "building",
+    title: "Self-serve branding",
+    body: "Upload your own logo, favicon and theme from settings without asking us.",
   },
 ];
 
@@ -211,26 +219,18 @@ export const security = [
 export const faqs = [
   {
     q: "Does the OCR file returns automatically?",
-    a: "No, and that is on purpose. It extracts the figures and proposes a CRA GIFI code with a confidence score; anything under 70% is flagged for manual verification. An accountant confirms or corrects every code before it reaches a return.",
+    a: "No, and that is on purpose. It extracts the figures and proposes a CRA GIFI code with a confidence score; an accountant confirms every code before it reaches a return. We will show you exactly how that review step works on a demo.",
   },
   {
     q: "Can we use our own branding?",
-    a: "Yes. Logo, favicon, heading and body colours, button colours and typeface are all configurable per firm, with light, dark or fully custom themes. Clients never see our name.",
+    a: "Yes — logo, favicon, colours and typeface, per firm. Your clients never see our name.",
   },
   {
     q: "Does it handle both businesses and individual filers?",
-    a: "Both, with a pipeline for each — five steps for a business GST/HST return, four for a personal return — plus separate payment ledgers and an invoice type for each.",
+    a: "Both, with a separate filing pipeline, invoice type and payment ledger for each.",
   },
   {
     q: "Where is client data hosted?",
     a: "Canadian regions. Tax documents and SINs are exactly the kind of data residency rules exist for, and we will show you where it sits.",
-  },
-  {
-    q: "Can our clients use it without training?",
-    a: "The portal ships with a built-in handbook covering every screen, and the client side is deliberately narrow — a checklist, an upload button and a status. Your staff get the complicated screens, not your clients.",
-  },
-  {
-    q: "Can we migrate our existing client list?",
-    a: "Yes. Organisations, individual filers, users and historical documents can be imported. We scope the migration during onboarding rather than discovering it afterwards.",
   },
 ];

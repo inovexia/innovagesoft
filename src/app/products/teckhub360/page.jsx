@@ -11,17 +11,18 @@ import {
   DeadlinesScreen,
 } from "@/components/teckhub/screens";
 import {
-  OcrFlow,
   PipelineTracks,
   RoleDiagram,
   WhiteLabelDiagram,
 } from "@/components/teckhub/diagrams";
 import {
   audience,
+  billing,
   faqs,
   modules,
   ocr,
   product,
+  rollingOut,
   security,
   whiteLabel,
 } from "@/lib/teckhub";
@@ -110,7 +111,7 @@ export default function TeckHubPage() {
         <SectionHeading
           eyebrow="What's inside"
           heading="Ten modules, one login."
-          intro="Everything a practice touches during filing season, in one portal — rather than a document tool, a billing tool, a spreadsheet and an inbox."
+          intro="Everything a practice touches during filing season, in one portal — rather than a document tool, a billing tool, a spreadsheet and an inbox. A demo goes into any of them in depth."
         />
 
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -167,31 +168,74 @@ export default function TeckHubPage() {
           </p>
         </Reveal>
 
-        <div className="mt-14">
-          <OcrFlow />
-        </div>
-
-        <Reveal delay={120}>
-          <div className="mt-6">
+        <Reveal delay={240}>
+          <div className="mt-14">
             <OcrReviewScreen />
           </div>
         </Reveal>
       </Section>
+
+      {/* ── Mid-page conversion point ────────────────────────────────── */}
+      <section className="pb-24 md:pb-28">
+        <div className="mx-auto w-[min(100%-2rem,82rem)]">
+          <Reveal>
+            <div className="flex flex-col items-start justify-between gap-6 rounded-3xl border border-hairline bg-surface p-8 md:flex-row md:items-center md:p-10">
+              <div>
+                <h2 className="text-[1.35rem] font-extrabold tracking-[-0.02em]">
+                  Easier to show than to describe.
+                </h2>
+                <p className="mt-2 max-w-[54ch] leading-[1.6] text-muted">
+                  Bring one of your own filing scenarios and we&rsquo;ll run it
+                  through the portal on the call.
+                </p>
+              </div>
+              <Ctas className="shrink-0" />
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ── Filing pipelines ─────────────────────────────────────────── */}
       <Section tinted>
         <SectionHeading
           eyebrow="Filing pipelines"
           heading="Two ordered paths, so nothing gets filed out of sequence."
-          intro="A return cannot jump a step. Each stage unlocks the next, and a partner can see exactly where any client sits without asking the accountant handling it."
+          intro="Each stage unlocks the next, and a partner can see exactly where any client sits without asking the accountant handling it."
         />
         <div className="mt-16">
           <PipelineTracks />
         </div>
       </Section>
 
-      {/* ── Documents & deadlines ────────────────────────────────────── */}
+      {/* ── Billing ──────────────────────────────────────────────────── */}
       <Section>
+        <SectionHeading eyebrow="Billing" heading={billing.heading} intro={billing.intro} />
+
+        <div className="mt-16 grid gap-5 md:grid-cols-3">
+          {billing.items.map((item, i) => {
+            const Icon = productIcons[item.icon];
+            return (
+              <Reveal key={item.title} delay={i * 70}>
+                <div className="flex h-full flex-col rounded-3xl border border-hairline bg-surface p-7">
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-accent-soft text-accent">
+                      <Icon className="h-[22px] w-[22px]" />
+                    </span>
+                    {item.shipping === "rolling-out" ? <RollingOut /> : null}
+                  </div>
+                  <h3 className="mt-5 text-[1.1rem] font-extrabold tracking-[-0.02em]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 leading-[1.6] text-muted">{item.body}</p>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+      </Section>
+
+      {/* ── Documents & deadlines ────────────────────────────────────── */}
+      <Section tinted>
         <SectionHeading
           eyebrow="Documents & deadlines"
           heading="Chasing paperwork, without the chasing."
@@ -209,7 +253,7 @@ export default function TeckHubPage() {
       </Section>
 
       {/* ── White-label ──────────────────────────────────────────────── */}
-      <Section tinted>
+      <Section>
         <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
           <div>
             <Reveal>
@@ -248,10 +292,10 @@ export default function TeckHubPage() {
       </Section>
 
       {/* ── Roles & security ─────────────────────────────────────────── */}
-      <Section>
+      <Section tinted>
         <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <Reveal>
-            <div className="rounded-3xl border border-hairline bg-surface p-7 text-text md:p-9">
+            <div className="rounded-3xl border border-hairline bg-bg p-7 text-text md:p-9">
               <RoleDiagram className="w-full" />
             </div>
           </Reveal>
@@ -289,6 +333,38 @@ export default function TeckHubPage() {
               })}
             </div>
           </div>
+        </div>
+      </Section>
+
+      {/* ── Rolling out soon ─────────────────────────────────────────── */}
+      <Section>
+        <SectionHeading
+          eyebrow="Rolling out soon"
+          heading="And a good deal more on the way."
+          intro="These are in build now. A demo covers where each one sits and what lands first — we would rather tell you that on a call than put a date on a web page."
+        />
+
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {rollingOut.map((item, i) => {
+            const Icon = productIcons[item.icon];
+            return (
+              <Reveal key={item.title} delay={i * 50}>
+                <div className="flex h-full gap-4 rounded-2xl border border-dashed border-[color-mix(in_srgb,var(--text)_22%,transparent)] bg-surface p-6">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <h3 className="text-[1rem] font-extrabold tracking-[-0.02em]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-[0.9rem] leading-[1.55] text-muted">
+                      {item.body}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </Section>
 

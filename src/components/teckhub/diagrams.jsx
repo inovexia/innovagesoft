@@ -1,74 +1,14 @@
-import { productIcons } from "@/components/ui/icons";
-import { ocr, pipelines } from "@/lib/teckhub";
+import { pipelines } from "@/lib/teckhub";
 
 /**
  * TeckHub360 explanatory diagrams.
  *
- * The two step flows are markup with SVG icons rather than one wide SVG: a
- * five-node horizontal SVG shrinks its labels to about 8px on a phone, where
- * markup simply reflows and stays readable. The two genuinely diagrammatic
- * pieces below — the brand skins and the role tree — carry few enough labels
- * to be real SVG and scale cleanly.
+ * These show the shape of the product, not its mechanics. The filing tracks
+ * give the stage count and the two ends rather than naming every step —
+ * walking a firm through the middle is what the demo is for.
  */
 
-const FLOW_ICONS = ["checklist", "scan", "pipeline", "shield", "invoice"];
-
-/** Upload → Extract → Suggest → Verify → File. */
-export function OcrFlow({ className = "" }) {
-  return (
-    <ol className={`grid gap-3 sm:grid-cols-2 lg:grid-cols-5 ${className}`}>
-      {ocr.steps.map((step, i) => {
-        const Icon = productIcons[FLOW_ICONS[i]];
-        const isVerify = step.title === "Verify";
-        return (
-          <li key={step.title} className="relative">
-            {/* Connector to the next node; hidden on the last and on stacked layouts. */}
-            {i < ocr.steps.length - 1 ? (
-              <span
-                aria-hidden="true"
-                className="absolute right-[-0.75rem] top-9 hidden h-px w-3 bg-hairline lg:block"
-              />
-            ) : null}
-
-            <div
-              className={`h-full rounded-2xl border bg-surface p-5 ${
-                isVerify
-                  ? "border-[color-mix(in_srgb,var(--accent)_45%,transparent)]"
-                  : "border-hairline"
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="grid h-9 w-9 place-items-center rounded-xl bg-accent-soft text-accent">
-                  <Icon className="h-[18px] w-[18px]" />
-                </span>
-                <span className="text-[0.72rem] font-bold tabular-nums text-muted">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <h3 className="mt-4 text-[1rem] font-extrabold tracking-[-0.02em]">
-                {step.title}
-              </h3>
-              <p className="mt-1.5 text-[0.88rem] leading-[1.55] text-muted">{step.body}</p>
-              {isVerify ? (
-                <p className="mt-3 inline-block rounded-full bg-warn-soft px-2.5 py-1 text-[0.7rem] font-bold text-warn">
-                  Human checkpoint
-                </p>
-              ) : null}
-            </div>
-          </li>
-        );
-      })}
-    </ol>
-  );
-}
-
-/**
- * The two filing pipelines side by side.
- *
- * Laid out horizontally: a vertical list left most of each card empty, and a
- * left-to-right run of numbered nodes reads as a pipeline rather than a
- * to-do list. It wraps to two rows on narrow screens.
- */
+/** The two filing pipelines: how many stages, and where each one starts and ends. */
 export function PipelineTracks({ className = "" }) {
   return (
     <div className={`grid gap-5 lg:grid-cols-2 ${className}`}>
@@ -77,40 +17,50 @@ export function PipelineTracks({ className = "" }) {
           key={pipeline.name}
           className="rounded-3xl border border-hairline bg-surface p-7 md:p-8"
         >
-          <h3 className="text-[1.15rem] font-extrabold tracking-[-0.02em]">
-            {pipeline.name}
-          </h3>
-          <p className="mt-1 text-[0.8rem] font-bold uppercase tracking-[0.1em] text-accent">
-            {pipeline.subtitle}
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <h3 className="text-[1.15rem] font-extrabold tracking-[-0.02em]">
+                {pipeline.name}
+              </h3>
+              <p className="mt-1 text-[0.8rem] font-bold uppercase tracking-[0.1em] text-accent">
+                {pipeline.subtitle}
+              </p>
+            </div>
+            <span className="shrink-0 rounded-full bg-accent-soft px-3 py-1 text-[0.78rem] font-bold text-accent">
+              {pipeline.count} stages
+            </span>
+          </div>
+
+          <div className="mt-8 flex items-center gap-3">
+            <Endpoint label={pipeline.first} />
+
+            {/* The stages in between, as dots rather than labels. */}
+            <span className="flex flex-1 items-center gap-1.5" aria-hidden="true">
+              <span className="h-px flex-1 bg-hairline" />
+              {Array.from({ length: pipeline.count - 2 }).map((_, i) => (
+                <span key={i} className="h-1.5 w-1.5 rounded-full bg-accent opacity-60" />
+              ))}
+              <span className="h-px flex-1 bg-hairline" />
+            </span>
+
+            <Endpoint label={pipeline.last} />
+          </div>
+
+          <p className="mt-6 text-[0.9rem] leading-[1.6] text-muted">
+            A return cannot jump a stage. We&rsquo;ll walk you through the{" "}
+            {pipeline.count - 2} in between on a demo.
           </p>
-
-          <ol className="mt-8 flex flex-wrap items-start gap-y-6">
-            {pipeline.steps.map((step, i) => (
-              <li
-                key={step}
-                className="relative flex min-w-[104px] flex-1 flex-col items-center text-center"
-              >
-                {/* Rail to the next node. Inset so it meets the circles, and
-                    dropped on the last node and on whichever node ends a row. */}
-                {i < pipeline.steps.length - 1 ? (
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-[calc(50%+1.25rem)] right-[calc(-50%+1.25rem)] top-[1.1rem] h-px bg-hairline"
-                  />
-                ) : null}
-
-                <span className="relative z-10 grid h-9 w-9 place-items-center rounded-full border border-hairline bg-bg text-[0.82rem] font-extrabold tabular-nums text-accent">
-                  {i + 1}
-                </span>
-                <span className="mt-3 px-1 text-[0.86rem] font-semibold leading-snug">
-                  {step}
-                </span>
-              </li>
-            ))}
-          </ol>
         </div>
       ))}
     </div>
+  );
+}
+
+function Endpoint({ label }) {
+  return (
+    <span className="max-w-[7.5rem] shrink-0 rounded-xl border border-hairline bg-bg px-3 py-2.5 text-center text-[0.82rem] font-bold leading-tight">
+      {label}
+    </span>
   );
 }
 

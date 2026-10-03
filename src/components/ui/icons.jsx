@@ -305,8 +305,16 @@ export const ListIcon = (p) => (
   </Icon>
 );
 
+export const ChatIcon = (p) => (
+  <Icon {...p}>
+    <path d="M20.25 11.5a7.25 7.25 0 0 1-7.25 7.25H9.5L5 21.75v-4.4A7.25 7.25 0 0 1 12.5 4.25h.5a7.25 7.25 0 0 1 7.25 7.25z" />
+    <path d="M9.25 11.5h.01M12.75 11.5h.01M16.25 11.5h.01" strokeWidth={2.4} />
+  </Icon>
+);
+
 export const productIcons = {
   building: BuildingIcon,
+  chat: ChatIcon,
   userCheck: UserCheckIcon,
   checklist: ChecklistIcon,
   scan: ScanIcon,
